@@ -65,7 +65,8 @@ printf 'Today is %1$tY-%1$tm-%1$te%n', now
 // print/extract current time components
 now = LocalTime.now() // or LocalDateTime
 println SV(now.hour, now.minute, now.second)
-(H, M, S) = now[HOUR_OF_DAY, MINUTE_OF_HOUR, SECOND_OF_MINUTE]
+(H, M, S) = now[HOUR_OF_DAY, MINUTE_OF_HOUR,
+                SECOND_OF_MINUTE]
 printf 'The time is %02d:%02d:%02d\n', H, M, S
 
 // alternatives to print time
