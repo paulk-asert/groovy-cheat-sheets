@@ -15,7 +15,7 @@
  */
 
 plugins {
-    id 'com.github.ben-manes.versions' version '0.43.0'
+    id 'com.github.ben-manes.versions' version '0.44.0'
     // uncomment next plugin if using JDK11+ and checking buildHealth
     //id 'com.autonomousapps.dependency-analysis' version '1.12.0'
 }
@@ -38,4 +38,14 @@ dependencies {
     implementation 'com.google.guava:guava:31.1-jre'
     implementation 'org.eclipse.collections:eclipse-collections-api:11.1.0'
     runtimeOnly 'org.eclipse.collections:eclipse-collections:11.1.0'
+}
+
+sourceSets {
+    main {
+        groovy {
+            if (!JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_19)) {
+                exclude '**/*_JDK19.groovy'
+            }
+        }
+    }
 }
